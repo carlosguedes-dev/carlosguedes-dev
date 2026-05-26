@@ -4,25 +4,16 @@ on:
   push:
     branches:
       - main
-      - master  # Caso sua branch principal se chame master
+      - master
 
-  # Permite acionar o workflow manualmente pela aba "Actions" do GitHub
   workflow_dispatch:
 
-# Permissões necessárias para o deploy no GitHub Pages
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Garante que apenas um deploy aconteça por vez
-concurrency:
-  group: pages
-  cancel-in-progress: false
+  contents: write
 
 jobs:
-  build:
-    name: Build
+  build-and-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do repositório
@@ -34,29 +25,14 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v5
-
       - name: Instalar dependências
         run: npm install
 
       - name: Build do projeto (Vite)
         run: npm run build
 
-      - name: Upload do artefato para o GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy para branch gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          # Faz o upload da pasta dist gerada pelo Vite
-          path: dist
-
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy para o GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
