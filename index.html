@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Carlos Guedes — Dev Engineer. Código de precisão, interfaces que impressionam, arquitetura que escala." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Carlos Guedes — Dev Engineer</title>
+    <script type="module" crossorigin src="/carlosguedes-dev/assets/index-BcC5ZOuk.js"></script>
+    <link rel="stylesheet" crossorigin href="/carlosguedes-dev/assets/index-DduYuM6N.css">
+  </head>
+  <body>
+
+    <!-- ══════ BOOT SCREEN ══════ -->
+    <div id="boot-screen">
+      <div class="boot-content">
+        <div class="boot-logo">CG</div>
+        <div class="boot-progress">
+          <div class="boot-bar"></div>
+        </div>
+        <p class="boot-text mono">INITIALIZING SYSTEM<span class="boot-dots">...</span></p>
+      </div>
+    </div>
+
+    <!-- ══════ GLOBAL OVERLAYS ══════ -->
+    <canvas id="particle-canvas"></canvas>
+    <div id="noise-overlay"></div>
+    <div id="grid-overlay"></div>
+    <div id="scanline-overlay"></div>
+    <div id="vignette-overlay"></div>
+
+    <!-- ══════ PERSISTENT HUD CHROME ══════ -->
+    <header id="hud-top">
+      <div class="hud-left">
+        <div class="hud-indicator"></div>
+        <span class="hud-tag">SYS://CARLOS_GUEDES</span>
+        <span class="hud-sep">//</span>
+        <span class="hud-status" id="hud-status">ONLINE</span>
+      </div>
+      <div class="hud-right">
+        <span class="hud-data" id="hud-coords">X:0000 Y:0000</span>
+        <span class="hud-sep">//</span>
+        <span class="hud-data" id="hud-depth">Z-DEPTH: 0.0%</span>
+      </div>
+    </header>
+
+    <footer id="hud-bottom">
+      <div class="hud-left">
+        <span class="hud-data" id="hud-fps">60 FPS</span>
+        <span class="hud-sep">//</span>
+        <span class="hud-data" id="hud-time"></span>
+      </div>
+      <div class="hud-center">
+        <div class="scroll-indicator" id="scroll-indicator">
+          <span class="scroll-text mono">SCROLL TO DIVE</span>
+          <div class="scroll-arrows">
+            <span class="scroll-arrow">‹</span>
+            <span class="scroll-arrow">‹</span>
+            <span class="scroll-arrow">‹</span>
+          </div>
+        </div>
+      </div>
+      <div class="hud-right">
+        <a href="https://github.com/carlosguedes-dev" target="_blank" class="hud-link">GITHUB ↗</a>
+      </div>
+    </footer>
+
+    <!-- ══════ SIDE HUD RAILS ══════ -->
+    <div class="hud-rail left-rail">
+      <div class="rail-line"></div>
+      <div class="rail-markers">
+        <div class="rail-dot active" data-layer="0"></div>
+        <div class="rail-dot" data-layer="1"></div>
+        <div class="rail-dot" data-layer="2"></div>
+        <div class="rail-dot" data-layer="3"></div>
+        <div class="rail-dot" data-layer="4"></div>
+        <div class="rail-dot" data-layer="5"></div>
+      </div>
+      <div class="rail-line"></div>
+    </div>
+
+    <!-- ══════ 3D VIEWPORT ══════ -->
+    <div id="viewport">
+      <div id="scene">
+
+        <!-- ─── LAYER 0 : HERO ─── -->
+        <section class="layer" id="layer-0">
+          <div class="layer-content hero-layout">
+
+            <div class="hero-main">
+              <div class="hud-frame">
+                <div class="frame-corner tl"></div>
+                <div class="frame-corner tr"></div>
+                <div class="frame-corner bl"></div>
+                <div class="frame-corner br"></div>
+                <div class="frame-scanner"></div>
+              </div>
+
+              <p class="hero-init mono typing-text" data-text="// booting dev.carlos_guedes...">// booting dev.carlos_guedes...</p>
+
+              <h1 class="hero-name glitch-text" data-text="CARLOS GUEDES">CARLOS GUEDES</h1>
+
+              <div class="hero-role-bar">
+                <div class="role-dash"></div>
+                <span class="role-label mono">FULL-STACK DEV ENGINEER</span>
+                <div class="role-dash"></div>
+              </div>
+
+              <p class="hero-desc">Engenharia de código precisa. Interfaces que marcam.<br>Arquitetura que resiste ao tempo.</p>
+
+              <div class="hero-stats">
+                <div class="stat-item">
+                  <span class="stat-value mono">24/7</span>
+                  <span class="stat-label">DEDICAÇÃO</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                  <span class="stat-value mono">100%</span>
+                  <span class="stat-label">PIXEL-PERFECT</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                  <span class="stat-value mono">∞</span>
+                  <span class="stat-label">ESCALÁVEL</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-side">
+              <div class="arc-reactor">
+                <svg class="reactor-svg" viewBox="0 0 240 240">
+                  <!-- Outer rings -->
+                  <circle class="reactor-ring r1" cx="120" cy="120" r="110" />
+                  <circle class="reactor-ring r2" cx="120" cy="120" r="100" />
+                  <circle class="reactor-ring r3" cx="120" cy="120" r="85" />
+                  <!-- Arc segments -->
+                  <circle class="reactor-arc a1" cx="120" cy="120" r="95" />
+                  <circle class="reactor-arc a2" cx="120" cy="120" r="78" />
+                  <circle class="reactor-arc a3" cx="120" cy="120" r="65" />
+                  <!-- Center -->
+                  <circle class="reactor-core" cx="120" cy="120" r="30" />
+                  <circle class="reactor-core-glow" cx="120" cy="120" r="18" />
+                  <!-- Labels -->
+                  <text class="reactor-label" x="120" y="116" text-anchor="middle">CG</text>
+                  <text class="reactor-sublabel" x="120" y="132" text-anchor="middle">ENGINEER</text>
+                </svg>
+                <!-- Orbiting dots -->
+                <div class="orbit-dot od1"></div>
+                <div class="orbit-dot od2"></div>
+                <div class="orbit-dot od3"></div>
+              </div>
+
+              <div class="side-readout mono">
+                <div class="readout-row"><span class="readout-key">STACK</span><span class="readout-val">TS / REACT / NODE</span></div>
+                <div class="readout-row"><span class="readout-key">STATUS</span><span class="readout-val active">OPERACIONAL</span></div>
+                <div class="readout-row"><span class="readout-key">FOCUS</span><span class="readout-val">CLEAN ARCHITECTURE</span></div>
+                <div class="readout-row"><span class="readout-key">MODE</span><span class="readout-val">PRODUCTION</span></div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ─── LAYER 1 : LÓGICA ─── -->
+        <section class="layer" id="layer-1">
+          <div class="layer-content split-layout text-left">
+            <div class="section-text">
+              <div class="hud-frame sm">
+                <div class="frame-corner tl"></div>
+                <div class="frame-corner tr"></div>
+                <div class="frame-corner bl"></div>
+                <div class="frame-corner br"></div>
+              </div>
+              <span class="section-idx mono">01 ──── MÓDULO</span>
+              <h2>LÓGICA<br><span class="accent">ESTRUTURADA</span></h2>
+              <p>Resolução de problemas complexos através de algoritmos otimizados e pensamento computacional de alta precisão.</p>
+              <div class="tag-row">
+                <span class="tag">ALGORITHMS</span>
+                <span class="tag">DATA STRUCTURES</span>
+                <span class="tag">O(log n)</span>
+              </div>
+            </div>
+            <div class="section-visual">
+              <div class="vis-flowchart">
+                <div class="fc-node fc-start"><span>INPUT</span></div>
+                <div class="fc-pipe v"></div>
+                <div class="fc-node fc-process"><span>ANALYZE</span></div>
+                <div class="fc-pipe v"></div>
+                <div class="fc-node fc-diamond"><span>?</span></div>
+                <div class="fc-branches">
+                  <div class="fc-branch">
+                    <div class="fc-pipe h"></div>
+                    <div class="fc-node fc-end green"><span>PASS</span></div>
+                  </div>
+                  <div class="fc-branch">
+                    <div class="fc-pipe h"></div>
+                    <div class="fc-node fc-end red"><span>RETRY</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="vis-float-data mono">
+                <span>COMPLEXITY: O(n log n)</span>
+                <span>ITERATIONS: 2.4M</span>
+                <span>ACCURACY: 99.97%</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ─── LAYER 2 : FRONT-END ─── -->
+        <section class="layer" id="layer-2">
+          <div class="layer-content split-layout text-right">
+            <div class="section-visual">
+              <div class="vis-browser">
+                <div class="browser-chrome">
+                  <div class="bc-dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+                  <div class="bc-url mono">https://carlosguedes.dev</div>
+                  <div class="bc-actions"><span>⟳</span></div>
+                </div>
+                <div class="browser-body">
+                  <div class="bb-nav">
+                    <div class="bb-logo"></div>
+                    <div class="bb-links"><span></span><span></span><span></span></div>
+                  </div>
+                  <div class="bb-hero">
+                    <div class="bb-hero-text">
+                      <div class="bb-line l1"></div>
+                      <div class="bb-line l2"></div>
+                      <div class="bb-line l3"></div>
+                    </div>
+                    <div class="bb-hero-btn"></div>
+                  </div>
+                  <div class="bb-cards">
+                    <div class="bb-card"><div class="bbc-img"></div><div class="bbc-text"><span></span><span></span></div></div>
+                    <div class="bb-card"><div class="bbc-img"></div><div class="bbc-text"><span></span><span></span></div></div>
+                    <div class="bb-card"><div class="bbc-img"></div><div class="bbc-text"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section-text">
+              <div class="hud-frame sm">
+                <div class="frame-corner tl"></div>
+                <div class="frame-corner tr"></div>
+                <div class="frame-corner bl"></div>
+                <div class="frame-corner br"></div>
+              </div>
+              <span class="section-idx mono">02 ──── MÓDULO</span>
+              <h2>FRONT-END<br><span class="accent">PIXEL-PERFECT</span></h2>
+              <p>Interfaces premium com rigor técnico absoluto. Cada pixel, cada curva, cada transição — com propósito.</p>
+              <div class="tag-row">
+                <span class="tag">REACT</span>
+                <span class="tag">TYPESCRIPT</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">GSAP</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ─── LAYER 3 : CÓDIGO LIMPO ─── -->
+        <section class="layer" id="layer-3">
+          <div class="layer-content split-layout text-left">
+            <div class="section-text">
+              <div class="hud-frame sm">
+                <div class="frame-corner tl"></div>
+                <div class="frame-corner tr"></div>
+                <div class="frame-corner bl"></div>
+                <div class="frame-corner br"></div>
+              </div>
+              <span class="section-idx mono">03 ──── MÓDULO</span>
+              <h2>CÓDIGO LIMPO<br><span class="accent">& ESCALÁVEL</span></h2>
+              <p>Arquitetura clara, manutenção intuitiva e performance robusta. Código que outros devs leem e entendem de primeira.</p>
+              <div class="tag-row">
+                <span class="tag">CLEAN CODE</span>
+                <span class="tag">SOLID</span>
+                <span class="tag">PATTERNS</span>
+                <span class="tag">TDD</span>
+              </div>
+            </div>
+            <div class="section-visual">
+              <div class="vis-code-editor">
+                <div class="ce-tabs">
+                  <span class="ce-tab active mono">engine.ts</span>
+                  <span class="ce-tab mono">types.ts</span>
+                </div>
+                <div class="ce-body">
+                  <div class="ce-lines mono">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                    <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                    <span>11</span><span>12</span>
+                  </div>
+                  <pre class="ce-code"><code><span class="kw">export class</span> <span class="cls">Engine</span> {
+  <span class="kw">private</span> modules: <span class="tp">Map</span>&lt;<span class="tp">string</span>, <span class="tp">Module</span>&gt;;
+
+  <span class="fn">constructor</span>() {
+    <span class="kw">this</span>.modules = <span class="kw">new</span> <span class="tp">Map</span>();
+  }
+
+  <span class="fn">register</span>(mod: <span class="tp">Module</span>): <span class="tp">void</span> {
+    <span class="kw">this</span>.modules.set(mod.id, mod);
+    mod.<span class="fn">init</span>();
+    <span class="cm">// → clean, modular, scalable</span>
+  }
+}</code></pre>
+                </div>
+                <div class="ce-status mono">
+                  <span>TypeScript</span>
+                  <span>UTF-8</span>
+                  <span>Ln 12, Col 1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ─── LAYER 4 : SEGURANÇA ─── -->
+        <section class="layer" id="layer-4">
+          <div class="layer-content split-layout text-right">
+            <div class="section-visual">
+              <div class="vis-security">
+                <div class="sec-shield">
+                  <svg viewBox="0 0 100 120" class="shield-svg">
+                    <path class="shield-outline" d="M50 5 L95 25 L95 65 Q95 95 50 115 Q5 95 5 65 L5 25 Z" />
+                    <path class="shield-fill" d="M50 5 L95 25 L95 65 Q95 95 50 115 Q5 95 5 65 L5 25 Z" />
+                    <text x="50" y="68" text-anchor="middle" class="shield-icon">✓</text>
+                  </svg>
+                  <div class="shield-pulse"></div>
+                </div>
+                <div class="sec-meters">
+                  <div class="sec-meter">
+                    <div class="sm-header"><span class="sm-label mono">LATENCY</span><span class="sm-val mono">12ms</span></div>
+                    <div class="sm-track"><div class="sm-fill" style="--w: 92%"></div></div>
+                  </div>
+                  <div class="sec-meter">
+                    <div class="sm-header"><span class="sm-label mono">UPTIME</span><span class="sm-val mono">99.9%</span></div>
+                    <div class="sm-track"><div class="sm-fill" style="--w: 99%"></div></div>
+                  </div>
+                  <div class="sec-meter">
+                    <div class="sm-header"><span class="sm-label mono">SECURITY</span><span class="sm-val mono">A+</span></div>
+                    <div class="sm-track"><div class="sm-fill green" style="--w: 95%"></div></div>
+                  </div>
+                  <div class="sec-meter">
+                    <div class="sm-header"><span class="sm-label mono">THREATS</span><span class="sm-val mono danger">0</span></div>
+                    <div class="sm-track"><div class="sm-fill red" style="--w: 2%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section-text">
+              <div class="hud-frame sm">
+                <div class="frame-corner tl"></div>
+                <div class="frame-corner tr"></div>
+                <div class="frame-corner bl"></div>
+                <div class="frame-corner br"></div>
+              </div>
+              <span class="section-idx mono">04 ──── MÓDULO</span>
+              <h2>SEGURANÇA<br><span class="accent">& PERFORMANCE</span></h2>
+              <p>Blindagem contra vulnerabilidades e obsessão com cada milissegundo. Aplicações rápidas, seguras e resilientes.</p>
+              <div class="tag-row">
+                <span class="tag">OWASP</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">LIGHTHOUSE</span>
+                <span class="tag">AUDIT</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ─── LAYER 5 : CONTATO ─── -->
+        <section class="layer" id="layer-5">
+          <div class="layer-content contact-layout">
+            <div class="hud-frame lg">
+              <div class="frame-corner tl"></div>
+              <div class="frame-corner tr"></div>
+              <div class="frame-corner bl"></div>
+              <div class="frame-corner br"></div>
+              <div class="frame-scanner"></div>
+            </div>
+
+            <span class="section-idx mono">05 ──── TRANSMISSÃO</span>
+            <h2>VAMOS CONSTRUIR<br><span class="accent">O FUTURO?</span></h2>
+            <p class="contact-desc">Se você busca um desenvolvedor que trata código como engenharia de precisão, inicie a transmissão.</p>
+
+            <div class="contact-grid">
+              <a href="https://wa.me/5553991411935" target="_blank" class="contact-card" id="contact-whatsapp">
+                <div class="cc-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </div>
+                <div class="cc-info">
+                  <span class="cc-label mono">WHATSAPP</span>
+                  <span class="cc-value">(53) 99141-1935</span>
+                </div>
+                <span class="cc-arrow">→</span>
+              </a>
+
+              <a href="https://github.com/carlosguedes-dev" target="_blank" class="contact-card" id="contact-github">
+                <div class="cc-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </div>
+                <div class="cc-info">
+                  <span class="cc-label mono">GITHUB</span>
+                  <span class="cc-value">carlosguedes-dev</span>
+                </div>
+                <span class="cc-arrow">→</span>
+              </a>
+
+              <a href="mailto:carlosguedes0007@gmail.com?subject=Contato%20via%20Site%20Pessoal&body=Ol%C3%A1%20Carlos%2C%0A%0A" target="_blank" class="contact-card" id="contact-email">
+                <div class="cc-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div class="cc-info">
+                  <span class="cc-label mono">E-MAIL</span>
+                  <span class="cc-value">carlosguedes0007@gmail.com</span>
+                </div>
+                <span class="cc-arrow">→</span>
+              </a>
+            </div>
+
+            <div class="contact-signature mono">
+              <div class="sig-line"></div>
+              <span>Projetado & Desenvolvido por <em class="accent">Carlos Guedes</em></span>
+              <span class="sig-year">© 2026 — Todos os direitos reservados</span>
+              <div class="sig-line"></div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Scroll driver -->
+    <div id="scroll-container"></div>
+
+  </body>
+</html>
