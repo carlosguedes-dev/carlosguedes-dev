@@ -2,14 +2,14 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   // ─── BASE ───────────────────────────────────────────────────────────
-  // Repositório: github.com/carlosguedes-dev/carlosguedes-dev
-  // Como o nome do repositório é igual ao username, este é o repositório
-  // PRINCIPAL da conta. O site será publicado na raiz:
-  //   → https://carlosguedes-dev.github.io/
+  // O repositório se chama "carlosguedes-dev".
+  // Para ser o site principal (raiz), deveria se chamar "carlosguedes-dev.github.io".
+  // Como não é, o GitHub Pages publica o site no subcaminho igual ao nome do repositório.
+  //   → https://carlosguedes-dev.github.io/carlosguedes-dev/
   //
-  // Neste caso, base DEVE ser '/' (sem subdiretório).
+  // Neste caso, a base DEVE ser '/carlosguedes-dev/'.
   //
-  base: '/',
+  base: '/carlosguedes-dev/',
   // ────────────────────────────────────────────────────────────────────
 
   build: {
