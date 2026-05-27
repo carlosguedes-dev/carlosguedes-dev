@@ -1,7 +1,7 @@
 # Carlos Guedes — Dev Engineer Portfolio
 
 ![Status](https://img.shields.io/badge/Status-Online-success?style=flat-square&logo=github)
-![Tech Stack](https://img.shields.io/badge/Stack-TypeScript%20%7C%20Vite%20%7C%20Vanilla%20CSS-blue?style=flat-square)
+![Tech Stack](https://img.shields.io/badge/Stack-TypeScript%20%7C%20Vite%20%7C%20Vanilla%20CSS%20%7C%20Hacking%20%7C%20IA%20%7C%20Java%20%7C%20JavaScript%20%7C%20Design%20%7C%20Python%20%7C%20PHP-blue?style=flat-square)
 
 Bem-vindo ao repositório do meu site pessoal/portfólio. Este projeto foi desenvolvido para refletir a minha abordagem como engenheiro de software: **código de precisão, interfaces que impressionam e arquitetura que escala.**
 
