@@ -24,8 +24,11 @@
   --z-offset:     0px;
   --perspective:  1200px;
   --border:       rgba(0, 229, 255, 0.12);
+  --border-hover: rgba(0, 229, 255, 0.35);
   --glow-cyan:    rgba(0, 229, 255, 0.15);
+  --glow-cyan-strong: rgba(0, 229, 255, 0.35);
   --glow-neon:    rgba(57, 255, 20, 0.15);
+  --glow-neon-strong: rgba(57, 255, 20, 0.3);
 }
 
 /* ─── RESET ─── */
@@ -37,6 +40,24 @@ body {
   font-family: var(--ff-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Aurora shimmer across the bg */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 40% at 20% 80%, rgba(0, 229, 255, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 35% at 80% 20%, rgba(57, 255, 20, 0.03) 0%, transparent 55%);
+  animation: auroraDrift 18s ease-in-out infinite alternate;
+}
+@keyframes auroraDrift {
+  0%   { opacity: 0.6; transform: scale(1) translateY(0); }
+  50%  { opacity: 1;   transform: scale(1.05) translateY(-20px); }
+  100% { opacity: 0.7; transform: scale(0.97) translateY(10px); }
 }
 ::-webkit-scrollbar { width: 0; }
 .mono { font-family: var(--ff-mono); }
@@ -111,6 +132,7 @@ a { color: inherit; text-decoration: none; }
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  /* Hidden on mobile – no mouse interaction on touch devices */
 }
 
 #noise-overlay {
@@ -409,6 +431,7 @@ h1 {
   line-height: 1;
   color: var(--white);
   text-transform: uppercase;
+  text-shadow: 0 0 60px rgba(0, 229, 255, 0.08);
 }
 
 h2 {
@@ -418,11 +441,12 @@ h2 {
   line-height: 1.15;
   color: var(--white);
   text-transform: uppercase;
+  text-shadow: 0 0 40px rgba(0, 229, 255, 0.06);
 }
 
 .accent {
   color: var(--cyan);
-  text-shadow: 0 0 25px var(--glow-cyan);
+  text-shadow: 0 0 30px var(--glow-cyan-strong), 0 0 60px var(--glow-cyan);
 }
 
 p {
@@ -437,9 +461,26 @@ p {
   font-size: 0.7rem;
   color: var(--neon);
   letter-spacing: 4px;
-  text-shadow: 0 0 10px var(--glow-neon);
+  text-shadow: 0 0 10px var(--glow-neon-strong);
   margin-bottom: 0.5rem;
   display: inline-block;
+  position: relative;
+}
+.section-idx::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--neon), transparent);
+  animation: idxLine 3s ease-out infinite;
+}
+@keyframes idxLine {
+  0%  { width: 0; opacity: 0; }
+  30% { width: 100%; opacity: 1; }
+  70% { width: 100%; opacity: 0.5; }
+  100% { width: 0; opacity: 0; }
 }
 
 /* Glitch */
@@ -722,13 +763,26 @@ p {
   border: 1px solid var(--border);
   padding: 0.35rem 0.8rem;
   background: rgba(0, 229, 255, 0.03);
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
 }
+.tag::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(57, 255, 20, 0.04));
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.tag:hover::before { opacity: 1; }
 .tag:hover {
-  background: rgba(0, 229, 255, 0.12);
+  background: rgba(0, 229, 255, 0.06);
   border-color: var(--cyan);
-  box-shadow: 0 0 20px var(--glow-cyan);
-  transform: translateY(-2px);
+  box-shadow: 0 0 18px var(--glow-cyan), inset 0 0 12px rgba(0, 229, 255, 0.04);
+  transform: translateY(-3px) scale(1.03);
+  color: var(--white);
+  text-shadow: 0 0 8px var(--glow-cyan);
 }
 
 /* ═══════════════════════════════════════════
@@ -1146,26 +1200,43 @@ p {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(4px);
 }
 
+/* Sweep shine */
 .contact-card::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
+  left: -120%;
+  width: 60%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.05), transparent);
-  transition: left 0.6s ease;
+  background: linear-gradient(105deg, transparent, rgba(0, 229, 255, 0.08), rgba(57, 255, 20, 0.04), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
 }
 
-.contact-card:hover::before { left: 100%; }
+/* Bottom glow line */
+.contact-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cyan), var(--neon));
+  box-shadow: 0 0 8px var(--glow-cyan);
+  transition: width 0.5s ease;
+}
+
+.contact-card:hover::before { left: 160%; }
+.contact-card:hover::after  { width: 100%; }
 
 .contact-card:hover {
-  border-color: var(--cyan);
-  background: rgba(0, 229, 255, 0.06);
-  box-shadow: 0 0 30px var(--glow-cyan);
-  transform: translateX(8px);
+  border-color: var(--border-hover);
+  background: rgba(0, 229, 255, 0.05);
+  box-shadow: 0 0 40px var(--glow-cyan), inset 0 0 20px rgba(0, 229, 255, 0.02);
+  transform: translateX(10px);
 }
 
 .cc-icon {
@@ -1232,6 +1303,11 @@ p {
    RESPONSIVE
    ═══════════════════════════════════════════ */
 @media (max-width: 960px) {
+  /* ─── Esconde o canvas de partículas no mobile ─── */
+  #particle-canvas { display: none; }
+  /* Aurora fica mais suave sem as partículas */
+  body::before { opacity: 0.5; }
+
   .layer { padding: 4rem 2rem; }
   .hero-layout { grid-template-columns: 1fr; gap: 2rem; }
   .hero-main { align-items: center; text-align: center; }
@@ -1245,14 +1321,21 @@ p {
   .section-text { align-items: center; text-align: center; }
   p { text-align: center; }
   .left-rail { display: none; }
+  /* Desativa efeitos pesados de CSS no mobile */
+  .tag:hover { transform: none; }
+  .contact-card:hover { transform: translateX(4px); }
 }
 
 @media (max-width: 520px) {
   .layer { padding: 3rem 1rem; }
   #hud-top, #hud-bottom { padding: 0.7rem 1rem; font-size: 0.55rem; }
+  /* Oculta coords e depth no mobile pequeno para não poluir */
+  #hud-coords, #hud-depth { display: none; }
   h1 { font-size: 2.2rem; letter-spacing: 3px; }
   h2 { font-size: 1.8rem; }
   .hero-stats { gap: 1rem; padding: 1rem; }
   .vis-browser, .vis-code-editor { width: 280px; }
   .contact-card { padding: 1rem; }
+  /* Aurora off em telas muito pequenas – performance */
+  body::before { display: none; }
 }

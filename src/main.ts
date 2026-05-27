@@ -252,8 +252,10 @@ function tick() {
     scrollHint.style.opacity = hintOpacity.toString();
   }
 
-  // Particles
-  renderParticles();
+  // Particles (desktop only)
+  if (!isTouchOnly) {
+    renderParticles();
+  }
 
   requestAnimationFrame(tick);
 }
@@ -297,8 +299,18 @@ window.addEventListener('resize', resizeCanvas, { passive: true });
 /* ═══════════════════════════════════════════
    INIT
    ═══════════════════════════════════════════ */
+
+// ─── Detect touch-only devices (mobile/tablet) ───
+// On these devices there's no mouse to interact with, and the canvas is hidden
+// via CSS anyway, so we skip particle setup entirely to save CPU/battery.
+const isTouchOnly = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
 resizeCanvas();
-spawnParticles();
+
+if (!isTouchOnly) {
+  spawnParticles();
+}
+
 boot();
 
 // Start typing after boot finishes
