@@ -1,15 +1,34 @@
-# Carlos Guedes — Dev Engineer Portfolio
+# Olá, eu sou o Carlos Guedes! 👋
 
 ![Status](https://img.shields.io/badge/Status-Online-success?style=flat-square&logo=github)
 ![Tech Stack](https://img.shields.io/badge/Stack-TypeScript%20%7C%20Vite%20%7C%20Vanilla%20CSS%20%7C%20Hacking%20%7C%20IA%20%7C%20Java%20%7C%20JavaScript%20%7C%20Design%20%7C%20Python%20%7C%20PHP-blue?style=flat-square)
 
-Bem-vindo ao repositório do meu site pessoal/portfólio. Este projeto foi desenvolvido para refletir a minha abordagem como engenheiro de software: **código de precisão, interfaces que impressionam e arquitetura que escala.**
+Sou um **Engenheiro de Software** e Desenvolvedor apaixonado por criar experiências digitais premium, interativas e altamente tecnológicas. Meu foco está na união perfeita entre **código de precisão, interfaces que impressionam e arquitetura que escala**. Acredito que o design e a tecnologia devem caminhar juntos para entregar produtos excepcionais e imersivos.
+
+## 🚀 Sobre mim
+- 💡 Construo aplicações web modernas, com foco extremo nos detalhes visuais (UI/UX), utilizando animações fluidas, efeitos 3D e interfaces arrojadas.
+- 🛠️ Possuo domínio em **JavaScript**, **TypeScript**, e exploro ao máximo o potencial de tecnologias nativas (Vanilla CSS, Canvas API, WebGL/Three.js) para criar experiências que não dependem de frameworks pesados para brilhar.
+- 🎨 Tenho um grande apreço por **Design Premium**: utilizo vidro (glassmorphism), paletas harmoniosas, microinterações e tipografias de ponta.
+- ⚙️ Desenvolvo soluções Full-Stack escaláveis, explorando ecossistemas modernos (React, Next.js, Vite, Node.js).
+- 🚀 Busco constantemente expandir meus conhecimentos, englobando também IA, segurança e arquitetura de sistemas.
+
+## 📞 Contato
+Vamos construir algo incrível juntos!
+- **WhatsApp:** [(53) 99141-1935](https://wa.me/5553991411935)
+- **E-mail:** carlosguedes0007@gmail.com
+- **Portfólio:** [carlosguedes-dev.github.io/carlosguedes-dev](https://carlosguedes-dev.github.io/carlosguedes-dev/)
+
+---
+
+<br>
+
+# 📂 Sobre este Repositório (Meu Portfólio Pessoal)
+
+Este repositório (`carlosguedes-dev`) abriga o código-fonte do meu site pessoal/portfólio. Este projeto foi desenvolvido para refletir a minha abordagem como engenheiro de software de forma prática.
 
 O design utiliza uma estética imersiva com elementos de HUD (Heads-Up Display), efeitos 3D orientados por scroll e um sistema de partículas iterativo via Canvas API, proporcionando uma experiência de navegação fluida e tecnológica.
 
 🔗 **Acesse o site:** [carlosguedes-dev.github.io/carlosguedes-dev](https://carlosguedes-dev.github.io/carlosguedes-dev/)
-
----
 
 ## ✨ Features Principais
 
@@ -74,14 +93,6 @@ A action realiza os seguintes passos:
 2. Build do projeto otimizado pelo Vite.
 3. Push automático da pasta `dist/` para a branch `gh-pages`.
 4. O GitHub Pages lê a branch `gh-pages` e atualiza o site no ar instantaneamente.
-
-## 📞 Contato
-
-Ficou interessado no meu trabalho? Vamos conversar!
-
-- **WhatsApp:** [(53) 99141-1935](https://wa.me/5553991411935)
-- **E-mail:** carlosguedes0007@gmail.com
-- **GitHub:** [carlosguedes-dev](https://github.com/carlosguedes-dev)
 
 ---
 *Projetado e desenvolvido por Carlos Guedes. © 2026 Todos os direitos reservados.*
