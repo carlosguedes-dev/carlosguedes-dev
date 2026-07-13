@@ -1,3 +1,13 @@
+<div align="center">
+  <a href="https://carlosguedes-dev.github.io/carlosguedes-dev/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="./light.svg">
+      <img alt="Carlos Guedes Hero Banner" src="./dark.svg">
+    </picture>
+  </a>
+</div>
+
 # Olá, eu sou o Carlos Guedes! 👋
 
 ![Status](https://img.shields.io/badge/Status-Online-success?style=flat-square&logo=github)
