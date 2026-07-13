@@ -8,11 +8,6 @@
   </a>
 </div>
 
-# Olá, eu sou o Carlos Guedes! 👋
-
-![Status](https://img.shields.io/badge/Status-Online-success?style=flat-square&logo=github)
-![Tech Stack](https://img.shields.io/badge/Stack-TypeScript%20%7C%20Vite%20%7C%20Vanilla%20CSS%20%7C%20Hacking%20%7C%20IA%20%7C%20Java%20%7C%20JavaScript%20%7C%20Design%20%7C%20Python%20%7C%20PHP-blue?style=flat-square)
-
 Sou um **Engenheiro de Software** e Desenvolvedor apaixonado por criar experiências digitais premium, interativas e altamente tecnológicas. Meu foco está na união perfeita entre **código de precisão, interfaces que impressionam e arquitetura que escala**. Acredito que o design e a tecnologia devem caminhar juntos para entregar produtos excepcionais e imersivos.
 
 ## 🚀 Sobre mim
