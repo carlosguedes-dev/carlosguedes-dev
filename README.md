@@ -1,4 +1,14 @@
 <div align="center">
+  <a href="https://carlosguedes-dev.github.io/carlosguedes-dev/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="./light.svg">
+      <img alt="Carlos Guedes Hero Banner" src="./dark.svg">
+    </picture>
+  </a>
+</div>
+
+<div align="center">
 
 # 🚀 Carlos Guedes Dev (Portfólio Pessoal & HUD Experience) 👨‍💻✨
 
@@ -16,10 +26,6 @@
 ---
 
 🔗 **[Acessar o Projeto Ao Vivo / Demonstração Online](https://carlosguedes-dev.github.io/carlosguedes-dev/)**
-
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop" alt="Banner Portfólio Futurista e Interface HUD" width="80%" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);">
-</p>
 
 </div>
 
