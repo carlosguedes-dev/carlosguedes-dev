@@ -27,7 +27,6 @@ const layers    = $$('.layer');
 const scrollBox = $('#scroll-container')!;
 const bootEl    = $('#boot-screen')!;
 
-// HUD elements
 const hudDepth      = $('#hud-depth')!;
 const hudCoords     = $('#hud-coords')!;
 const hudFps        = $('#hud-fps')!;
@@ -108,7 +107,6 @@ function renderParticles() {
   for (let i = 0; i < particles.length; i++) {
     const p = particles[i];
 
-    // Mouse attraction
     const dx = mouseAbsX - p.x;
     const dy = mouseAbsY - p.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
@@ -123,20 +121,17 @@ function renderParticles() {
     p.x += p.vx;
     p.y += p.vy;
 
-    // Wrap
     if (p.x < 0) p.x += canvas.width;
     if (p.x > canvas.width) p.x -= canvas.width;
     if (p.y < 0) p.y += canvas.height;
     if (p.y > canvas.height) p.y -= canvas.height;
 
-    // Draw dot
     const c = COLORS[p.hue];
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
     ctx.fillStyle = `rgba(${c[0]},${c[1]},${c[2]},${p.opacity})`;
     ctx.fill();
 
-    // Connections
     for (let j = i + 1; j < particles.length; j++) {
       const q = particles[j];
       const ddx = p.x - q.x;
@@ -228,11 +223,9 @@ function tick() {
     dot.classList.toggle('active', i === activeLayer);
   });
 
-  // ─── HUD
   hudDepth.textContent = `Z-DEPTH: ${(progress * 100).toFixed(1)}%`;
   hudCoords.textContent = `X:${pad4(smx)} Y:${pad4(smy)}`;
 
-  // FPS
   frameCount++;
   const now = performance.now();
   if (now - lastFpsTime >= 1000) {
@@ -242,7 +235,6 @@ function tick() {
     hudFps.textContent = `${fps} FPS`;
   }
 
-  // Time
   const d = new Date();
   hudTime.textContent = d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
@@ -252,7 +244,6 @@ function tick() {
     scrollHint.style.opacity = hintOpacity.toString();
   }
 
-  // Particles (desktop only)
   if (!isTouchOnly) {
     renderParticles();
   }
@@ -300,7 +291,6 @@ window.addEventListener('resize', resizeCanvas, { passive: true });
    INIT
    ═══════════════════════════════════════════ */
 
-// ─── Detect touch-only devices (mobile/tablet) ───
 // On these devices there's no mouse to interact with, and the canvas is hidden
 // via CSS anyway, so we skip particle setup entirely to save CPU/battery.
 const isTouchOnly = window.matchMedia('(hover: none) and (pointer: coarse)').matches;

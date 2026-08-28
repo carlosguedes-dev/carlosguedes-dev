@@ -10,7 +10,7 @@
 
 <div align="center">
 
-# 🚀 Carlos Guedes Dev (Portfólio Pessoal & HUD Experience) 👨‍💻✨
+#  Carlos Guedes Dev (Portfólio Pessoal & HUD Experience) 
 
 **O portfólio digital interativo de Carlos Guedes — Engenheiro de Software especializado em experiências web de precisão, design imersivo e alta performance!**
 
@@ -21,17 +21,17 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Feito com Amor](https://img.shields.io/badge/Feito_com-MUITO_AMOR_❤️-ff0055?style=for-the-badge)](https://github.com)
+[![Feito com Amor](https://img.shields.io/badge/Feito_com-MUITO_AMOR_-ff0055?style=for-the-badge)](https://github.com)
 
 ---
 
-🔗 **[Acessar o Projeto Ao Vivo / Demonstração Online](https://carlosguedes-dev.github.io/carlosguedes-dev/)**
+ **[Acessar o Projeto Ao Vivo / Demonstração Online](https://carlosguedes-dev.github.io/carlosguedes-dev/)**
 
 </div>
 
 ---
 
-## 📖 Sobre o Projeto
+##  Sobre o Projeto
 
 O **Carlos Guedes Dev — Portfólio Pessoal** é a vitrine digital e laboratório prático de **Carlos Guedes**, Engenheiro de Software apaixonado por unir código de precisão milimétrica, interfaces visuais de vanguarda (*Ultra-Premium HUD & Cyberpunk Dark Mode*) e arquitetura computacional escalável. Este projeto foi criado para expressar de forma interativa sua filosofia de trabalho: a crença de que tecnologia robusta e design imersivo devem fundir-se para entregar produtos digitais inesquecíveis.
 
@@ -41,18 +41,18 @@ O coração gráfico da aplicação reside em um motor de partículas reativo pr
 
 ---
 
-## ✨ Principais Funcionalidades
+##  Principais Funcionalidades
 
-- 🌌 **Sistema de Partículas Dinâmico (Canvas API)**: Motor gráfico reativo programado em TypeScript, renderizando uma rede procedural de partículas e conexões que são atraídas e repelidas interativamente pelo cursor do mouse.
-- 🚀 **Navegação em Profundidade 3D (Z-Depth Parallax)**: Experiência imersiva de rolagem orientada ao eixo Z, proporcionando a ilusão cinematográfica de mergulho tridimensional através do conteúdo do portfólio.
-- 🎯 **HUD Futurista com Telemetria em Tempo Real**: Interface persistente que exibe coordenadas espaciais do mouse, medição contínua de FPS do navegador, progresso milimétrico de scroll e relógio global sincronizado.
-- 💎 **Acabamento Pixel-Perfect & Glassmorphism**: Design projetado com maestria em Vanilla CSS, incorporando efeitos de vidro fosco (`backdrop-filter: blur`), brilhos neon em camadas e tipografia de alto padrão.
-- ⚡ **Efeitos Tipográficos & Glitch Nativos**: Animações CSS3 de digitação progressiva e distorção estética inteligente (*glitch*), elevando a imersão na identidade visual futurista e tecnológica do site.
-- 📱 **Desempenho Otimizado (Zero Bloatware)**: Construído sem dependências de frameworks de interface pesados, garantindo tempos de carregamento instantâneos e responsividade fluida em tablets e smartphones.
+-  **Sistema de Partículas Dinâmico (Canvas API)**: Motor gráfico reativo programado em TypeScript, renderizando uma rede procedural de partículas e conexões que são atraídas e repelidas interativamente pelo cursor do mouse.
+-  **Navegação em Profundidade 3D (Z-Depth Parallax)**: Experiência imersiva de rolagem orientada ao eixo Z, proporcionando a ilusão cinematográfica de mergulho tridimensional através do conteúdo do portfólio.
+-  **HUD Futurista com Telemetria em Tempo Real**: Interface persistente que exibe coordenadas espaciais do mouse, medição contínua de FPS do navegador, progresso milimétrico de scroll e relógio global sincronizado.
+-  **Acabamento Pixel-Perfect & Glassmorphism**: Design projetado com maestria em Vanilla CSS, incorporando efeitos de vidro fosco (`backdrop-filter: blur`), brilhos neon em camadas e tipografia de alto padrão.
+-  **Efeitos Tipográficos & Glitch Nativos**: Animações CSS3 de digitação progressiva e distorção estética inteligente (*glitch*), elevando a imersão na identidade visual futurista e tecnológica do site.
+-  **Desempenho Otimizado (Zero Bloatware)**: Construído sem dependências de frameworks de interface pesados, garantindo tempos de carregamento instantâneos e responsividade fluida em tablets e smartphones.
 
 ---
 
-## 💻 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 Este projeto reflete o estado da arte do desenvolvimento web moderno, priorizando controle absoluto de renderização, tipagem estática e automação contínua:
 
@@ -64,7 +64,7 @@ Este projeto reflete o estado da arte do desenvolvimento web moderno, priorizand
 
 ---
 
-## 📁 Estrutura de Arquivos
+##  Estrutura de Arquivos
 
 ```text
 carlosguedes-dev/
@@ -90,7 +90,7 @@ carlosguedes-dev/
 
 ---
 
-## 🚀 Como Executar o Projeto
+##  Como Executar o Projeto
 
 Você pode rodar e explorar toda a estrutura computacional deste portfólio localmente seguindo os passos abaixo:
 
@@ -131,19 +131,19 @@ npm run preview
 
 ---
 
-## 🤝 Como Contribuir
+##  Como Contribuir
 
 Se você deseja explorar ideias, sugerir melhorias de performance gráfica para o motor de partículas do Canvas ou colaborar com melhorias visuais e arquiteturais, sinta-se à vontade para abrir uma Issue ou enviar um Pull Request. Confira as instruções detalhadas no nosso arquivo [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
-## 📄 Licença
+##  Licença
 
 Este portfólio e todos os seus recursos originais estão devidamente protegidos e distribuídos sob a licença de código aberto **MIT**. Veja o arquivo [LICENSE](LICENSE) para consultar as cláusulas de direitos autorais, cópia e modificação.
 
 ---
 
 <div align="center">
-  <p>Feito com todo o carinho, dedicação e engenharia de precisão por <a href="https://github.com/carlosguedes-dev"><b>Carlos Guedes</b></a> ❤️</p>
-  <p><b>Transformando arquitetura de software e design em experiências digitais inesquecíveis! 🚀✨</b></p>
+  <p>Feito com todo o carinho, dedicação e engenharia de precisão por <a href="https://github.com/carlosguedes-dev"><b>Carlos Guedes</b></a> </p>
+  <p><b>Transformando arquitetura de software e design em experiências digitais inesquecíveis! </b></p>
 </div>
